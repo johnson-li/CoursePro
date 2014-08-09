@@ -32,11 +32,12 @@ class Login:
             print 'login succeeded'
         else:
             print 'login failed'
+            exit(1)
 
     # login with verification code
     def login(self, verification_code):
         headers = {'User-Agent': '"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0"',
-                   'Refer': 'http://xk.fudan.edu.cn/xk/'}
+                   'Referer': 'http://xk.fudan.edu.cn/xk/'}
         post_data = {'studentId': self.student_id, 'password': self.password,
                      'Submit2': 'Submit', 'rand': verification_code}
         post_data = urllib.urlencode(post_data)
