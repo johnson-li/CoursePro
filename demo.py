@@ -7,10 +7,12 @@ import cookielib
 host = 'xk.fudan.edu.cn'
 hostUrl = 'http://xk.fudan.edu.cn/xk/'
 courseTableUrl = 'http://xk.fudan.edu.cn/xk/courseTableServlet'
+inputTabUrl = 'http://xk.fudan.edu.cn/xk/input.jsp'
 postUrl = 'http://xk.fudan.edu.cn/xk/loginServlet'
 imageUrl = "http://xk.fudan.edu.cn/xk/image.do"
 htmlFileSrc = 'index.html'
 courseFileSrc = 'course.html'
+inputFileSrc = 'input.jsp'
 imageFileSrc = 'image.jpg'
 
 cookie = cookielib.LWPCookieJar()
@@ -47,3 +49,12 @@ courseFile = open(courseFileSrc, 'wb')
 courseFile.write(courseTable)
 courseFile.close()
 
+inputTab = urlOpener.open(inputTabUrl).read()
+inputTabFile = open(inputFileSrc, 'wb')
+inputTabFile.write(inputTab)
+inputTabFile.close()
+
+postData = {'selectionId': 'FINE110001.01',
+            'token': '5437',
+            'xklb': 'ss',
+            'rand': 'fnmd'}
