@@ -11,6 +11,7 @@ class Login:
     loginImageUrl = "http://xk.fudan.edu.cn/xk/image.do"
     loginResultFileSrc = 'html/loginResult.html'
     VERIFICATION_IMAGE_SRC = 'image/loginVerificationCode.jpg'
+    # FIXME These two lines are not supposed to be here.
     __url_opener = urllib2.build_opener()
     __cookie_jar = cookielib.LWPCookieJar()
 

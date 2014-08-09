@@ -40,7 +40,7 @@ class CourseOperation:
 
     def __add_course_post(self, course_code, verification_code):
         headers = {'User-Agent': '"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0"',
-                   'Refer': 'http://xk.fudan.edu.cn/xk/input.jsp', 'Connection': 'keep-alive'}
+                   'Referer': 'http://xk.fudan.edu.cn/xk/input.jsp', 'Connection': 'keep-alive'}
         post_data = {'token': self.get_token(), 'selectionId': course_code,
                      'xklb': 'ss', 'rand': verification_code}
         post_data = urllib.urlencode(post_data)

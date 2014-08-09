@@ -1,8 +1,8 @@
 all:
 	@echo 'Be professional, use make!'
 
-run:
+run: clean
 	python main.py
 
 clean:
-	@echo 'What to clean?'
+	@rm -fv html/* image/*
