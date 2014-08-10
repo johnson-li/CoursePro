@@ -48,7 +48,6 @@ class CourseOperation:
                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'}
         post_data = {'token': self.get_token(), 'selectionId': course_code,
                      'xklb': 'ss', 'rand': verification_code}
-        print post_data
         post_data = urllib.urlencode(post_data)
         request = urllib2.Request(self.__addCoursePostUrl, post_data, headers)
         response = self.urlOpener.open(request)
@@ -56,6 +55,7 @@ class CourseOperation:
         response_html_file = open(self.__responseHtmlSrc, 'wb')
         response_html_file.write(response_data)
         response_html_file.close()
+        self.print_add_result(response_data)
 
     def add_course(self, course_code):
         self.store_verification_image()
@@ -88,3 +88,10 @@ class CourseOperation:
         print 'please input verification code'
         verification_code = raw_input()
         self.__drop_course_post(course_code, verification_code)
+
+    @staticmethod
+    def print_add_result(data):
+        pattern = re.compile('[\s\S]*[ \t]*alert\(\"(.+?)\"\);[\s\S]*]')
+        match = pattern.match(data)
+        if match:
+            print "add course response: " + match.group(1)
