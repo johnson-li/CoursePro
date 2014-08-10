@@ -3,10 +3,15 @@ __author__ = 'johnson'
 import login
 import courses
 import courseOperation
+import xmlHelper
 
-studentID = '12307130211'
-password = ''
-courseCode = 'FINE110001.01'
+profileSrc = 'xml/profile.xml'
+
+myXmlHelper = xmlHelper.XmlHelper(profileSrc)
+
+studentID = myXmlHelper.get_value('studentID')
+password = myXmlHelper.get_value('password')
+courseCode = myXmlHelper.get_value('courseCode')
 
 myLogin = login.Login(studentID, password)
 myLogin.init()

@@ -2,6 +2,7 @@ import os
 import cookielib
 import urllib
 import urllib2
+import Image
 
 
 class Login:
@@ -28,6 +29,8 @@ class Login:
 
         self.store_image(self.__url_opener)
         print 'please input verification code manually'
+        image = Image.open(self.VERIFICATION_IMAGE_SRC)
+        image.show()
         verification_code = raw_input()
         if self.login(verification_code):
             print 'login succeeded'
