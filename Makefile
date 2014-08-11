@@ -2,7 +2,7 @@ all:
 	@echo 'Be professional, use make!'
 
 run: clean
-	python main.py
+	@python CoursePro
 
 clean:
-	@rm -fv html/* image/*
+	@rm -rfv html image
