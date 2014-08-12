@@ -1,8 +1,11 @@
 all:
 	@echo 'Be professional, use make!'
 
-run: clean
+run:
 	@python CoursePro
 
+pep8:
+	@grep --color=auto -T PEP8 CoursePro/*.py
+
 clean:
-	@rm -rfv html image
+	@rm -rfv html image CoursePro/*.pyc
